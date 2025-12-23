@@ -1,0 +1,18 @@
+services:
+  auth:
+    build: ./auth
+    ports:
+      - "3000:3000"
+
+  post:
+    build: ./post
+    ports:
+      - "5001:5001"
+
+  api:
+    build: ./api
+    ports:
+      - "5000:5000"
+    depends_on:
+      - auth
+      - post
